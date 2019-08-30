@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.0 r1840935">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">8</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller" enabled="true"/>
+        <hashTree>
+          <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">ferrero2-dev.esphere.ru</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/</stringProp>
+            <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </ConfigTestElement>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="false">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="auth2/token" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="username" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.name">username</stringProp>
+                  <stringProp name="Argument.value">nnn</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+                <elementProp name="password" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.name">password</stringProp>
+                  <stringProp name="Argument.value">111</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+                <elementProp name="client_id" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.name">client_id</stringProp>
+                  <stringProp name="Argument.value">acba3f66ebde492fa0f2da0da7198b33</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+                <elementProp name="grant_type" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.name">grant_type</stringProp>
+                  <stringProp name="Argument.value">password</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/oauth2/token</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">https://ferrero2-dev.esphere.ru/</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Language" elementType="Header">
+                  <stringProp name="Header.name">Accept-Language</stringProp>
+                  <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+                </elementProp>
+                <elementProp name="Portal-Language" elementType="Header">
+                  <stringProp name="Header.name">Portal-Language</stringProp>
+                  <stringProp name="Header.value">ru-RU</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Encoding" elementType="Header">
+                  <stringProp name="Header.name">Accept-Encoding</stringProp>
+                  <stringProp name="Header.value">gzip, deflate, br</stringProp>
+                </elementProp>
+                <elementProp name="User-Agent" elementType="Header">
+                  <stringProp name="Header.name">User-Agent</stringProp>
+                  <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">token</stringProp>
+              <stringProp name="RegexExtractor.regex">&quot;access_token&quot;:&quot;(.+?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default">zxcvb</stringProp>
+              <stringProp name="RegexExtractor.match_number"></stringProp>
+            </RegexExtractor>
+            <hashTree/>
+          </hashTree>
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+            <boolProp name="LoopController.continue_forever">true</boolProp>
+            <stringProp name="LoopController.loops">2</stringProp>
+          </LoopController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="64 /api/orders" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;header&quot;:{&quot;buyerGln&quot;:&quot;6438261245863&quot;,&quot;buyerName&quot;:&quot;Новый кодъ ООО&quot;,&quot;comment&quot;:null,&quot;statusComment&quot;:null,&quot;contractNumber&quot;:null,&quot;createDate&quot;:&quot;2019-07-10&quot;,&quot;deliveryDate&quot;:&quot;2019-07-16&quot;,&quot;despatchDate&quot;:null,&quot;deliveryDetails&quot;:null,&quot;deliveryDetailsName&quot;:null,&quot;additionalDeliveryDetails&quot;:null,&quot;transportName&quot;:null,&quot;trasnportCode&quot;:null,&quot;deliveryType&quot;:null,&quot;deliveryPointAddress&quot;:&quot;Петрозаводск, дом 15. До подъезда&quot;,&quot;deliveryPointCode&quot;:&quot;964&quot;,&quot;deliveryPointGln&quot;:&quot;9646465165498&quot;,&quot;deliveryPointName&quot;:&quot;точка НК 1&quot;,&quot;despatchPointName&quot;:null,&quot;despatchPointAddress&quot;:null,&quot;despatchPointGln&quot;:null,&quot;deliveryTermsCode&quot;:null,&quot;deliveryTermsName&quot;:null,&quot;documentId&quot;:0,&quot;documentNumber&quot;:null,&quot;documentTypeId&quot;:1,&quot;extStatus&quot;:null,&quot;functionCode&quot;:9,&quot;sellerGln&quot;:&quot;4607086419991&quot;,&quot;sellerName&quot;:&quot;Ферреро Руссия&quot;,&quot;sumWithoutVat&quot;:7958.91,&quot;totalBox&quot;:3,&quot;totalLines&quot;:1,&quot;totalSum&quot;:9550.68,&quot;totalUnit&quot;:1500,&quot;totalNineLiterCases&quot;:null,&quot;vatSum&quot;:1591.7700000000004,&quot;parentDocId&quot;:null,&quot;parentOrderId&quot;:null,&quot;palletHeight&quot;:null,&quot;palletCount&quot;:1,&quot;paymentType&quot;:null,&quot;paymentTypeName&quot;:null,&quot;unitType&quot;:null,&quot;unitTypeName&quot;:null,&quot;baseDiscount&quot;:null,&quot;baseDiscount2&quot;:null,&quot;paymentDiscount&quot;:null,&quot;saleDiscount&quot;:null,&quot;americanPalletCount&quot;:null,&quot;euroPalletCount&quot;:null,&quot;palletWeight&quot;:null,&quot;totalSumWithoutDiscountWithoutVat&quot;:0,&quot;totalSumWithoutDiscountWithVat&quot;:0,&quot;sellerId&quot;:null,&quot;totalBrutto&quot;:9.9,&quot;totalNetto&quot;:8.475,&quot;isNotActual&quot;:false,&quot;id&quot;:-1,&quot;integerPalletCount&quot;:0,&quot;fractionalPalletCount&quot;:1,&quot;weightQli&quot;:0.085,&quot;nettoErrorTitle&quot;:&quot;&quot;,&quot;bruttoErrorTitle&quot;:&quot;&quot;,&quot;minPriceWithoutVatErrorTitle&quot;:&quot;&quot;},&quot;lines&quot;:[{&quot;lineId&quot;:0,&quot;goodId&quot;:2129674,&quot;article&quot;:&quot;8000500034071&quot;,&quot;buyerArticle&quot;:&quot;&quot;,&quot;actualPriceWithoutVat&quot;:0,&quot;banned&quot;:false,&quot;boxBarCode&quot;:&quot;77180265&quot;,&quot;boxBrutto&quot;:3.3,&quot;boxNetto&quot;:2.825,&quot;boxSize&quot;:500,&quot;brandName&quot;:&quot;K BUENO BITES/MN BUEN&quot;,&quot;categoryName&quot;:&quot;&quot;,&quot;count&quot;:3,&quot;goodBarCode&quot;:&quot;77180265&quot;,&quot;goodBrutto&quot;:0,&quot;goodName&quot;:&quot;Kinder Буено мини Т1х500&quot;,&quot;goodNetto&quot;:null,&quot;isDifferent&quot;:false,&quot;isExists&quot;:true,&quot;lineNum&quot;:1,&quot;palletCount&quot;:0.05,&quot;palletLayerSize&quot;:null,&quot;palletSize&quot;:64,&quot;priceWithVat&quot;:3183.564,&quot;priceWithoutVat&quot;:2652.97,&quot;subcategoryName&quot;:&quot;&quot;,&quot;totalBrutto&quot;:9.9,&quot;totalNetto&quot;:8.475,&quot;totalPriceWithVat&quot;:9550.68,&quot;totalPriceWithoutVat&quot;:7958.91,&quot;unitType&quot;:2,&quot;unitsInTrade&quot;:0,&quot;vat&quot;:20,&quot;multiplicity&quot;:1,&quot;boxWidth&quot;:null,&quot;boxHeight&quot;:null,&quot;boxLength&quot;:null,&quot;discountPercentage&quot;:null,&quot;discountPercentage2&quot;:null,&quot;volume&quot;:null,&quot;separateOrder&quot;:false,&quot;palleteType&quot;:&quot;&quot;,&quot;expiration&quot;:null,&quot;temperatureCondition&quot;:&quot;&quot;,&quot;specificationType&quot;:&quot;&quot;,&quot;comment&quot;:null,&quot;partNumber&quot;:null,&quot;expireDate&quot;:null,&quot;expirePercentage&quot;:null,&quot;calcPriceWithoutVat&quot;:2652.97,&quot;calcPriceWithVat&quot;:3183.56,&quot;brutto&quot;:3.3,&quot;netto&quot;:2.825,&quot;barCode&quot;:&quot;77180265&quot;,&quot;boxCount&quot;:3,&quot;layerCount&quot;:0,&quot;unitCount&quot;:1500,&quot;errorTitle&quot;:&quot;&quot;,&quot;version&quot;:&quot;&quot;,&quot;boxPriceWithoutVat&quot;:0,&quot;boxPriceWithVat&quot;:0,&quot;palletBrutto&quot;:null,&quot;feature&quot;:&quot;&quot;,&quot;goodDesc&quot;:&quot;&quot;,&quot;deliveryTypeCode&quot;:&quot;&quot;,&quot;deliveryTypeName&quot;:null,&quot;transportCode&quot;:&quot;&quot;,&quot;transportName&quot;:null,&quot;deliveryPointGln&quot;:&quot;&quot;,&quot;goodUnit&quot;:&quot;кор&quot;,&quot;returnAllowed&quot;:false,&quot;palletNetto&quot;:null,&quot;layerBoxSize&quot;:null,&quot;factoryDespatch&quot;:false,&quot;volumeUnit&quot;:&quot;&quot;,&quot;logisticVolume&quot;:null,&quot;logisticVolumeUnit&quot;:null,&quot;portalLineNumber&quot;:null,&quot;minOrder&quot;:null,&quot;despatchPointName&quot;:&quot;&quot;,&quot;despatchPointGln&quot;:&quot;&quot;,&quot;productStatus&quot;:0,&quot;productStatusName&quot;:&quot;Не установлен&quot;,&quot;previewImageId&quot;:null,&quot;previewImagePath&quot;:&quot;&quot;,&quot;imageId&quot;:null,&quot;imagePath&quot;:&quot;&quot;,&quot;segmentId&quot;:null,&quot;segmentName&quot;:null,&quot;salesChannelCodes&quot;:null,&quot;salesChannelNames&quot;:null,&quot;despatchPointGlns&quot;:null,&quot;despatchPointNames&quot;:null,&quot;unitTypes&quot;:[{&quot;key&quot;:1,&quot;value&quot;:&quot;Штука&quot;},{&quot;key&quot;:2,&quot;value&quot;:&quot;Короб&quot;}]}]}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">ferrero2-dev.esphere.ru</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+              <stringProp name="HTTPSampler.path">/api/orders</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">https://ferrero2-dev.esphere.ru/</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+                  </elementProp>
+                  <elementProp name="Portal-Language" elementType="Header">
+                    <stringProp name="Header.name">Portal-Language</stringProp>
+                    <stringProp name="Header.value">ru-RU</stringProp>
+                  </elementProp>
+                  <elementProp name="Content-Type" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjb21wYW55SWQiOiI1OTI1IiwiY29tcGFueUdsbiI6IjY0NTUzNDIzNDIzMjQiLCJjb21wYW55TmFtZSI6ItCe0J7QniBcItCn0LjRgdGC0YvQuSDQutC-0LTRilwiIiwib3duZXJHbG4iOiI0NjA3MDI1MDAwMDAxIiwib3duZXJJZCI6IjU3MTIiLCJ1bmlxdWVfbmFtZSI6Im5ubiIsInVzZXJJZCI6IjE5MDMiLCJyb2xlIjpbImJ1eWVyIiwib3BlcmF0b3IiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDoxMDgwLyIsImF1ZCI6ImU4ZGEwODEyYzJjYjRlOWY4ZmY0MDFjM2JiODBkOTZkIiwiZXhwIjoxNTU1NjcxMjA3LCJuYmYiOjE1NTU2Njc2MDd9.0bP96M_W6HZpljcgwKFMZvr2yzccmZ9EcQktNbKO2ME</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Connection</stringProp>
+                    <stringProp name="Header.value">keep-alive</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="script">import org.apache.jmeter.protocol.http.control.Header;
+sampler.getHeaderManager().removeHeaderNamed(&quot;Authorization&quot;);
+sampler.getHeaderManager().add(new Header(&quot;Authorization&quot;,&quot;Bearer &quot; + vars.get(&quot;token&quot;)));</stringProp>
+              </BeanShellPreProcessor>
+              <hashTree/>
+              <SampleTimeout guiclass="SampleTimeoutGui" testclass="SampleTimeout" testname="Sample Timeout" enabled="false">
+                <stringProp name="InterruptTimer.timeout">500</stringProp>
+              </SampleTimeout>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ProxyControl guiclass="ProxyControlGui" testclass="ProxyControl" testname="HTTP(S) Test Script Recorder" enabled="true">
+        <stringProp name="ProxyControlGui.port">8888</stringProp>
+        <collectionProp name="ProxyControlGui.exclude_list"/>
+        <collectionProp name="ProxyControlGui.include_list"/>
+        <boolProp name="ProxyControlGui.capture_http_headers">true</boolProp>
+        <intProp name="ProxyControlGui.grouping_mode">0</intProp>
+        <boolProp name="ProxyControlGui.add_assertion">false</boolProp>
+        <stringProp name="ProxyControlGui.sampler_type_name"></stringProp>
+        <boolProp name="ProxyControlGui.sampler_redirect_automatically">false</boolProp>
+        <boolProp name="ProxyControlGui.sampler_follow_redirects">true</boolProp>
+        <boolProp name="ProxyControlGui.use_keepalive">true</boolProp>
+        <boolProp name="ProxyControlGui.sampler_download_images">false</boolProp>
+        <intProp name="ProxyControlGui.proxy_http_sampler_naming_mode">0</intProp>
+        <stringProp name="ProxyControlGui.proxy_prefix_http_sampler_name"></stringProp>
+        <stringProp name="ProxyControlGui.proxy_pause_http_sampler"></stringProp>
+        <boolProp name="ProxyControlGui.notify_child_sl_filtered">false</boolProp>
+        <boolProp name="ProxyControlGui.regex_match">false</boolProp>
+        <stringProp name="ProxyControlGui.content_type_include"></stringProp>
+        <stringProp name="ProxyControlGui.content_type_exclude"></stringProp>
+      </ProxyControl>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
